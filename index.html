@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Acceptic | AngularJS test</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-app="app">
+        <div class="container" ng-controller="Users">
+            <h4 class="acc-caption-title">Manage users:</h4>
+            <table class="table table-bordered table-striped acc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Permissions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>david</td>
+                        <td>admin</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times-circle-o"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>david</td>
+                        <td>admin</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times-circle-o"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Dependencies -->
+        <script src="bower_components/angular/angular.js"></script>
+
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/Users.js"></script>
+
+        <!-- Directives -->
+
+        <!-- Services -->
+        <script src="js/services/Users.js"></script>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "AngularJS test",
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "angular": "~1.4.7",
+    "font-awesome": "^4.6.2"
+  }
+}
