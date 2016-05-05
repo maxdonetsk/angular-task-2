@@ -8,73 +8,88 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body ng-app="app">
-        <div class="container" ng-controller="Users">
-            <h4 class="acc-caption-title">Manage users:</h4>
-            <table class="table table-bordered table-striped acc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Permissions</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in users">
-                        <td>
-                            <span ng-if="editEnabled === false">{{user.username}}</span>
-                            <input type="text"
-                                   class="form-control"
-                                   ng-model="user.username"
-                                   ng-if="editEnabled === true" />
-                        </td>
-                        <td>
-                            <span ng-if="editEnabled === false">{{user.permissions}}</span>
-                            <input type="text"
-                                   class="form-control"
-                                   ng-model="user.permissions"
-                                   ng-if="editEnabled === true" />
-                        </td>
-                        <td class="text-center">
-                            <button type="button"
-                                    class="btn btn-info btn-sm"
-                                    ng-class="{'btn-info': (editEnabled === false),
+        <div class="container" ng-controller="Homepage">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4 class="acc-caption-title">{{ 'TITLE' | translate }}:</h4>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <select class="form-control acc-language-switcher"
+                            ng-model="selectedLanguage"
+                            ng-options="language.abbr for language in languages"
+                            ng-change="setLanguage(selectedLanguage)">
+                    </select>
+                </div>
+                <div class="col-xs-12">
+                    <table class="table table-bordered table-striped acc-table">
+                        <thead>
+                            <tr>
+                                <th>{{ 'NAME' | translate }}</th>
+                                <th>{{ 'PERMISSIONS' | translate }}</th>
+                                <th>{{ 'ACTIONS' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in users">
+                                <td>
+                                    <span ng-if="editEnabled === false">{{user.username}}</span>
+                                    <input type="text"
+                                           class="form-control"
+                                           ng-model="user.username"
+                                           ng-if="editEnabled === true" />
+                                </td>
+                                <td>
+                                    <span ng-if="editEnabled === false">{{user.permissions}}</span>
+                                    <input type="text"
+                                           class="form-control"
+                                           ng-model="user.permissions"
+                                           ng-if="editEnabled === true" />
+                                </td>
+                                <td class="text-center">
+                                    <button type="button"
+                                            class="btn btn-info btn-sm"
+                                            ng-class="{'btn-info': (editEnabled === false),
                                             'btn-success': (editEnabled === true)}"
-                                    ng-init="editEnabled = false"
-                                    ng-click="editEnabled = !editEnabled;
+                                            ng-init="editEnabled = false"
+                                            ng-click="editEnabled = !editEnabled;
                                                     editUser(user)">
-                                <i class="fa"
-                                   ng-class="{'fa-cog':  (editEnabled === false),
+                                        <i class="fa"
+                                           ng-class="{'fa-cog':  (editEnabled === false),
                                            'fa-check': (editEnabled === true)}">
-                                </i>
-                            </button>
-                            <button type="button"
-                                    class="btn btn-danger btn-sm"
-                                    ng-click="deleteUser(user)">
-                                <i class="fa fa-times-circle-o"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr ng-if="addEnabled === true">
-                        <td>
-                            <input type="text"
-                                   class="form-control"
-                                   ng-model="user.username" />
-                        </td>
-                        <td>
-                            <input type="text"
-                                   class="form-control"
-                                   ng-model="user.permissions" />
-                        </td>
-                        <td class="text-center">
-                            <button type="button"
-                                    class="btn btn-success btn-sm"
-                                    ng-click="addUser(user)">
-                                <i class="fa fa-check"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                        </i>
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-danger btn-sm"
+                                            ng-click="deleteUser(user)">
+                                        <i class="fa fa-times-circle-o"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr ng-if="addEnabled === true">
+                                <td>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="{{ 'NAME' | translate }}"
+                                           ng-model="user.username" />
+                                </td>
+                                <td>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="{{ 'PERMISSIONS' | translate }}"
+                                           ng-model="user.permissions" />
+                                </td>
+                                <td class="text-center">
+                                    <button type="button"
+                                            class="btn btn-success btn-sm"
+                                            ng-click="addUser(user)">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <button class="btn btn-success acc-ad-user"
                     ng-init="addEnabled = false"
                     ng-click="addEnabled = !addEnabled">
@@ -84,16 +99,18 @@
 
         <!-- Dependencies -->
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.min.js"></script>
 
         <!-- Modules -->
         <script src="js/app.js"></script>
 
         <!-- Controllers -->
-        <script src="js/controllers/Users.js"></script>
+        <script src="js/controllers/Homepage.js"></script>
 
         <!-- Directives -->
 
         <!-- Services -->
+        <script src="js/services/Languages.js"></script>
         <script src="js/services/Users.js"></script>
     </body>
 </html>

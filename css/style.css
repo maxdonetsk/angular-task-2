@@ -2388,7 +2388,12 @@ Mixin for form-control-focus.
 Example: @include form-control-focus;
 */
 .acc-caption-title {
-  margin: 20px 15px 25px; }
+  margin: 20px 0 25px 15px; }
+
+.acc-language-switcher {
+  margin: 20px 15px 25px 0;
+  display: inline-block;
+  width: auto; }
 
 .acc-table tr {
   background-color: transparent; }

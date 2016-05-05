@@ -19,13 +19,13 @@
                 function editUser(user) {
                     return angular.copy(user);
                 }
-                
+
                 function addUser(user) {
                     user = {
                         id: users.length + 1,
                         username: user.username,
                         permissions: user.permissions
-                    }
+                    };
                     users.push(user);
                 }
 

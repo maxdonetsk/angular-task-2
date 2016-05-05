@@ -1,0 +1,14 @@
+[
+    {
+        "abbr": "en",
+        "name": "English"
+    },
+    {
+        "abbr": "de",
+        "name": "Deutsch"
+    },
+    {
+        "abbr": "ru",
+        "name": "Русский"
+    }
+]
