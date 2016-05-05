@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "username": "david",
+        "permissions": "admin"
+    },
+    {
+        "id": "2",
+        "username": "meir",
+        "permissions": "manager"
+    },
+    {
+        "id": "3",
+        "username": "qwert",
+        "permissions": "admin"
+    },
+    {
+        "id": "4",
+        "username": "voicespin",
+        "permissions": "admin"
+    },
+    {
+        "id": "5",
+        "username": "romi",
+        "permissions": "admin"
+    },
+    {
+        "id": "6",
+        "username": "aaa",
+        "permissions": "editor"
+    }
+]

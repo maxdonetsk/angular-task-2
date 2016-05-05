@@ -30,3 +30,13 @@ Write custom rules here ONLY!
         }
     }
 }
+
+.acc-ad-user {
+    @include prefix((box-shadow: 3px 3px 5px rgba(black, 0.25)));
+    width: $button-big;
+    height: $button-big;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 35px;
+    right: 20px;
+}

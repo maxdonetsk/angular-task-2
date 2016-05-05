@@ -19,24 +19,67 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>david</td>
-                        <td>admin</td>
+                    <tr ng-repeat="user in users">
+                        <td>
+                            <span ng-if="editEnabled === false">{{user.username}}</span>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="user.username"
+                                   ng-if="editEnabled === true" />
+                        </td>
+                        <td>
+                            <span ng-if="editEnabled === false">{{user.permissions}}</span>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="user.permissions"
+                                   ng-if="editEnabled === true" />
+                        </td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times-circle-o"></i></button>
+                            <button type="button"
+                                    class="btn btn-info btn-sm"
+                                    ng-class="{'btn-info': (editEnabled === false),
+                                            'btn-success': (editEnabled === true)}"
+                                    ng-init="editEnabled = false"
+                                    ng-click="editEnabled = !editEnabled;
+                                                    editUser(user)">
+                                <i class="fa"
+                                   ng-class="{'fa-cog':  (editEnabled === false),
+                                           'fa-check': (editEnabled === true)}">
+                                </i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-danger btn-sm"
+                                    ng-click="deleteUser(user)">
+                                <i class="fa fa-times-circle-o"></i>
+                            </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>david</td>
-                        <td>admin</td>
+                    <tr ng-if="addEnabled === true">
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="user.username" />
+                        </td>
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="user.permissions" />
+                        </td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times-circle-o"></i></button>
+                            <button type="button"
+                                    class="btn btn-success btn-sm"
+                                    ng-click="addUser(user)">
+                                <i class="fa fa-check"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <button class="btn btn-success acc-ad-user"
+                    ng-init="addEnabled = false"
+                    ng-click="addEnabled = !addEnabled">
+                <i class="fa fa-2x fa-plus"></i>
+            </button>
         </div>
 
         <!-- Dependencies -->
