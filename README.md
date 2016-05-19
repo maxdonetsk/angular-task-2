@@ -4,6 +4,8 @@
 3. Create an Angular app that will allow us to manage users that will be saved in service/factory( External storage is not required).
 4. Create a service/factory that will hold users Array and allow to the app to delete.
 
+Layout:
+![Layout](/manageUsersExam.png)
 * Try to make your code readable and modular.
 
 
